@@ -1,6 +1,5 @@
-player.say(positions.groundPosition(pos(0, 0, 0)));
-
-
+let myPosition = positions.groundPosition(pos(0, 0, 0));
+player.say(myPosition);
 
 let cubeSize = 5;
 let width = 5;
@@ -12,7 +11,9 @@ player.say("Start Placing Stone");
     for (let x =1; x <= width; x++){
         for (let y =1; y <= height; y++){    
             for (let z =1; z <= length; z++){
-            blocks.place(BEDROCK, world(x, y, z));
+              let newPos = positions.add(myPosition, pos(x, y, z));
+            player.say("My Position"+myPosition.toString() + "New" + newPos.toString() +" Cords" + newPos + " XYZ " + newPos.getValue(Axis.X)+ " "  + newPos.getValue(Axis.Y) + " "  + newPos.getValue(Axis.Z)  );
+            blocks.place(BEDROCK, world(newPos.getValue(Axis.X) , newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
             }
         }
     }
