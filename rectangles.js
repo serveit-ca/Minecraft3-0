@@ -1,4 +1,5 @@
-// this is a file that create rectangles. 
+player.say(positions.groundPosition(pos(0, 0, 0)));
+
 
 
 let cubeSize = 5;
@@ -11,7 +12,7 @@ player.say("Start Placing Stone");
     for (let x =1; x <= width; x++){
         for (let y =1; y <= height; y++){    
             for (let z =1; z <= length; z++){
-            blocks.place(BEDROCK, pos(x, y, z));
+            blocks.place(BEDROCK, world(x, y, z));
             }
         }
     }
