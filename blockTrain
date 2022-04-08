@@ -1,0 +1,18 @@
+let buildBlocks = [6,1,12,56,47];
+// get the current position.
+player.onChat("buildTrain", function() {  
+player.say("Start Placing Stone");
+let myPosition = positions.groundPosition(pos(0, 0, 0));
+            for (let z =1; z <= buildBlocks.length; z++){
+             let newPos = positions.add(myPosition, pos(1, 1, z)); 
+            player.say("My Position"+myPosition.toString() + 
+            "New" + newPos.toString() +" Cords" + newPos + 
+            " XYZ " + newPos.getValue(Axis.X)+ " "  
+            + newPos.getValue(Axis.Y) + " "  
+            + newPos.getValue(Axis.Z)  );
+            blocks.place(buildBlocks[z], world(newPos.getValue(Axis.X) ,
+             newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
+            
+    }
+player.say("Done Placing Stone");
+});
