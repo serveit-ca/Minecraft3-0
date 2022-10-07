@@ -6,37 +6,37 @@ let height = 5;
 let length = 5;
 
 // get the current position.
-player.onChat("buildBlock", function() {  
-player.say("Start Placing Stone");
-let myPosition = positions.groundPosition(pos(0, 0, 0));
-    for (let x =1; x <= width; x++){
-        for (let y =1; y <= height; y++){    
-            for (let z =1; z <= length; z++){
-             let newPos = positions.add(myPosition, pos(x, y, z)); 
-            player.say("My Position"+myPosition.toString() + 
-            "New" + newPos.toString() +" Cords" + newPos + 
-            " XYZ " + newPos.getValue(Axis.X)+ " "  
-            + newPos.getValue(Axis.Y) + " "  
-            + newPos.getValue(Axis.Z)  );
-            blocks.place(BEDROCK, world(newPos.getValue(Axis.X) ,
-             newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
+player.onChat("buildBlock", function () {
+    player.say("Start Placing Stone");
+    let myPosition = positions.groundPosition(pos(0, 0, 0));
+    for (let x = 1; x <= width; x++) {
+        for (let y = 1; y <= height; y++) {
+            for (let z = 1; z <= length; z++) {
+                let newPos = positions.add(myPosition, pos(x, y, z));
+                player.say("My Position" + myPosition.toString() +
+                    "New" + newPos.toString() + " Cords" + newPos +
+                    " XYZ " + newPos.getValue(Axis.X) + " "
+                    + newPos.getValue(Axis.Y) + " "
+                    + newPos.getValue(Axis.Z));
+                blocks.place(BEDROCK, world(newPos.getValue(Axis.X),
+                    newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
             }
         }
     }
-player.say("Done Placing Stone");
+    player.say("Done Placing Stone");
 
-// Write the code somewhere down here 
-for (let x =2; x <= width; x++){
-        for (let y =2; y <= height; y++){    
-            for (let z =2; z <= length; z++){
-             let newPos = positions.add(myPosition, pos(x, y, z)); 
-            player.say("My Position"+myPosition.toString() + 
-            "New" + newPos.toString() +" Cords" + newPos + 
-            " XYZ " + newPos.getValue(Axis.X)+ " "  
-            + newPos.getValue(Axis.Y) + " "  
-            + newPos.getValue(Axis.Z)  );
-            blocks.place(AIR, world(newPos.getValue(Axis.X) ,
-             newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
+    // Write the code somewhere down here 
+    for (let x = 2; x <= width-1; x++) {
+        for (let y = 2; y <= height-1; y++) {
+            for (let z = 2; z <= length-1; z++) {
+                let newPos = positions.add(myPosition, pos(x, y, z));
+                player.say("My Position" + myPosition.toString() +
+                    "New" + newPos.toString() + " Cords" + newPos +
+                    " XYZ " + newPos.getValue(Axis.X) + " "
+                    + newPos.getValue(Axis.Y) + " "
+                    + newPos.getValue(Axis.Z));
+                blocks.place(AIR, world(newPos.getValue(Axis.X),
+                    newPos.getValue(Axis.Y), newPos.getValue(Axis.Z)));
             }
         }
     }
@@ -44,26 +44,26 @@ for (let x =2; x <= width; x++){
 })
 
 
-player.onChat("build", function() {
-player.say("Start Placing Stone");
+player.onChat("build", function () {
+    player.say("Start Placing Stone");
 
-for (let z =1; z <6; z++){
-blocks.place(BEDROCK, pos(0, 0, z));
-}
-player.say("Done Placing Stone");
+    for (let z = 1; z < 6; z++) {
+        blocks.place(BEDROCK, pos(0, 0, z));
+    }
+    player.say("Done Placing Stone");
 })
 
-player.onChat("buildBottom", function() {
-    
-player.say("Start Placing Stone");
+player.onChat("buildBottom", function () {
 
-for (let x =1; x <6; x++){
-for (let z =1; z <6; z++){
-blocks.place(BEDROCK, pos(x, 0, z));
-}
-}
+    player.say("Start Placing Stone");
 
-player.say("Done Placing Stone");
+    for (let x = 1; x < 6; x++) {
+        for (let z = 1; z < 6; z++) {
+            blocks.place(BEDROCK, pos(x, 0, z));
+        }
+    }
 
-// blocks.print("You're in Trouble!!!", LAVA, pos(0, 0, 0), WEST)
+    player.say("Done Placing Stone");
+
+    // blocks.print("You're in Trouble!!!", LAVA, pos(0, 0, 0), WEST)
 })
