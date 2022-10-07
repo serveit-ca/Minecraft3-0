@@ -1,7 +1,7 @@
 player.onChat("maze", function () {
     agent.teleportToPlayer()
     player.say("Starting the Maze!")
-    agent.teleport(world(-33, 3, 1117), WEST)
+    agent.teleport(world(-15, 63, 59), WEST)
     player.say("Done TP")
     player.say(agent.getPosition());
     
