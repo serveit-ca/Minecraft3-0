@@ -13,16 +13,17 @@ player.onChat("maze", function () {
 })
 function solveMaze () {
     player.say("Taking a Step to Solve")
-    // if able to Move forward 1 step
-    if (!agent.detect(AgentDetection.Block, FORWARD) 
-    && !agent.detect(AgentDetection.Redstone, FORWARD)) {
-        player.say("1 - Able to move Forward");
-        agent.move(FORWARD, 1);
-    // If able to move left move left
-    } else if (!agent.detect(AgentDetection.Block, LEFT) 
+        // If able to move left move left
+
+    if (!agent.detect(AgentDetection.Block, LEFT) 
     && !agent.detect(AgentDetection.Redstone, LEFT)) {
         player.say("2 - Able to move Left");
         agent.turn(TurnDirection.Left);
+        agent.move(FORWARD, 1);
+    // if able to Move forward 1 step
+    } else if (!agent.detect(AgentDetection.Block, FORWARD) 
+    && !agent.detect(AgentDetection.Redstone, FORWARD)) {
+        player.say("1 - Able to move Forward");
         agent.move(FORWARD, 1);
     // if can't move left try to move right
     } else if (!agent.detect(AgentDetection.Block, RIGHT) 
@@ -38,6 +39,6 @@ function solveMaze () {
 
             // If blocked on all sides do a 180 and follow first step
 
-    	
+        
     }
 }
