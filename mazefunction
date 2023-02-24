@@ -1,0 +1,23 @@
+function solveMaze () {
+    player.say("Taking a Step to Solve")
+    // If able to move left move left
+    if (!(agent.detect(AgentDetection.Block, LEFT)) && !(agent.detect(AgentDetection.Redstone, LEFT))) {
+        player.say("1 - Able to move Left")
+        agent.turn(LEFT_TURN)
+        agent.move(FORWARD, 1)
+    // if able to Move forward 1 step
+   } else if (!(agent.detect(AgentDetection.Block, FORWARD)) && !(agent.detect(AgentDetection.Redstone, FORWARD))) {
+        player.say("2 - Able to move Forward")
+        agent.move(FORWARD, 1)
+    // if can't move left try to move right
+    } else if (!(agent.detect(AgentDetection.Block, RIGHT)) && !(agent.detect(AgentDetection.Redstone, RIGHT))) {
+        player.say("3 - Able to move Right")
+        agent.turn(RIGHT_TURN)
+        agent.move(FORWARD, 1)
+    // If blocked on all sides do a 180 and follow first step
+    } else {
+        player.say("4 - Doing a 180")
+        agent.turn(LEFT_TURN)
+        agent.turn(LEFT_TURN)
+    }
+}
