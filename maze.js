@@ -1,27 +1,23 @@
 // There are my Cords (-21, -33, -295)
 
-
-
-
 player.onChat("maze", function () {
     agent.teleportToPlayer()
     player.say("Starting the Maze!")
-    agent.teleport(world(-21, -33, -295), WEST)
+    agent.teleport(world(67, 70, 73), WEST)
     player.say("Done TP")
     player.say(agent.getPosition())
     while (!(agent.detect(AgentDetection.Redstone, DOWN))) {
         player.say(agent.getPosition())
         solveMaze()
     }
+
+    if (agent.detect(AgentDetection.Redstone, DOWN)){
+        player.say("Maze Completed");
+    }
 })
-function solveMaze () {
+function solveMaze() {
     player.say("Taking a Step to Solve")
-    // If able to move left move left
-    // if able to Move forward 1 step
-    // if able to Move forward 1 step
-    // if can't move left try to move right
-    // do a 180
-    // If blocked on all sides do a 180 and follow first step
+
     agent.move(DOWN, 1)
 
     if (!(agent.detect(AgentDetection.Block, LEFT)) && !(agent.detect(AgentDetection.Redstone, LEFT))) {
