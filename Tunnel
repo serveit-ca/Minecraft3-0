@@ -1,0 +1,33 @@
+function moveAgent(){
+    player.say("Starting MoveAgent Function");
+    agent.teleportToPlayer();
+    player.say("Agent Moved");
+
+    for(let i=0;i<50;i++){
+        destroyEverything();
+        agent.move(FORWARD, 1);
+        i++
+    }
+}
+moveAgent();
+
+
+function destroyEverything(){
+    if (agent.detect(AgentDetection.Block, FORWARD)) {
+        agent.destroy(FORWARD);
+    }
+    if (agent.detect(AgentDetection.Block, LEFT)) {
+        agent.destroy(LEFT);
+    }
+    if (agent.detect(AgentDetection.Block, RIGHT)) {
+        agent.destroy(RIGHT);
+    }
+    if (agent.detect(AgentDetection.Block, DOWN)) {
+        agent.destroy(DOWN);
+    }
+    if (agent.detect(AgentDetection.Block, UP)) {
+        agent.destroy(UP);
+    }
+    agent.collectAll()
+}
+
